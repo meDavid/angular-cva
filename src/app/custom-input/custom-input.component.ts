@@ -26,17 +26,17 @@ export class CustomInputComponent implements OnInit, ControlValueAccessor {
         input: ''
       }
     );
-    this.form.valueChanges.subscribe(r => console.log('changes', r));
   }
 
   writeValue(obj: any): void {
-    console.log('writeValue', obj);
+    console.log('writeValue customInput', obj);
     this.form.setValue({input: obj})
     // throw new Error("Method not implemented.");
   }
   registerOnChange(fn: any): void {
+    console.log('registerOnChange');
     this.form.valueChanges.pipe(
-      tap(r => console.log('register', r),
+      tap(r => console.log('changes customInput child form', r),
         map(r => r))
     ).subscribe(fn);
   }
