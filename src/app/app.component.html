@@ -13,8 +13,8 @@
   </div>
   {{form.value | json}}
 
-  <button (click)="form.setValue({input:'aap', input2:'banaan'}, {emitEvent: false})">Zonder Event</button>
-  <button (click)="form.setValue({input:'noot', input2:'mies'}, {emitEvent: true})">Met Event</button>
+  <button (click)="form.get('input2').setValue('banaan' + Date.now(), {emitEvent: false})">Zonder Event</button>
+  <button (click)="form.get('input2').setValue('mies', {emitEvent: true})">Met Event</button>
 
 </form>
 

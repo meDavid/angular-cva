@@ -36,8 +36,8 @@ export class CustomInputComponent implements OnInit, ControlValueAccessor {
   registerOnChange(fn: any): void {
     console.log('registerOnChange');
     this.form.valueChanges.pipe(
-      tap(r => console.log('changes customInput child form', r),
-        map(r => r))
+      tap(r => console.log('changes customInput child form', r.input),
+        map((r: any) => r.input + ' aha'))
     ).subscribe(fn);
   }
   registerOnTouched(fn: any): void {

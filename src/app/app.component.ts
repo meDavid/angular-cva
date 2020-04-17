@@ -10,6 +10,7 @@ import {tap} from 'rxjs/operators';
 export class AppComponent implements OnInit {
   name = 'Angular';
   form: FormGroup;
+  Date = Date;
 
   constructor(private fb: FormBuilder) {
   }
@@ -21,6 +22,6 @@ export class AppComponent implements OnInit {
         input2: 'ddddd'
       }
     );
-    this.form.valueChanges.pipe(tap(value => console.log('new changes parent', value)));
+    this.form.valueChanges.pipe(tap(value => console.log('new changes parent', value))).subscribe();
   }
 }
