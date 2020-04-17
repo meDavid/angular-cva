@@ -2,7 +2,9 @@ import { tap, first, map, startWith } from 'rxjs/operators';
 import { FormBuilder, Form, ControlValueAccessor, FormControl, FormGroup, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { Component, OnInit, Input, EventEmitter, forwardRef } from '@angular/core';
 
-
+export interface ControlValueAccessorWithWriteValueOptions extends  Omit<ControlValueAccessor, 'writeValue'> {
+  writeValue(obj: any, options: { onlySelf?: boolean; emitEvent?: boolean; emitModelToViewChange?: boolean; emitViewToModelChange?: boolean; }): void;
+}
 @Component({
   selector: 'custom-input',
   templateUrl: './custom-input.component.html',
@@ -15,7 +17,7 @@ import { Component, OnInit, Input, EventEmitter, forwardRef } from '@angular/cor
     }
   ]
 })
-export class CustomInputComponent implements OnInit, ControlValueAccessor {
+export class CustomInputComponent implements OnInit, ControlValueAccessorWithWriteValueOptions {
 
   form: FormGroup;
 
