@@ -1,0 +1,19 @@
+
+<p>
+  Start editing to see some magic happen :)
+</p>
+<h2>Form</h2>
+<form [formGroup]="form">
+  <div>
+    <label>input 1 native</label>
+    <input formControlName="input"/>
+  </div>
+  <div>
+    <custom-input formControlName="input2"></custom-input>
+  </div>
+  {{form.value | json}}
+
+
+
+</form>
+

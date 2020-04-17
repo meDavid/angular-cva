@@ -1,0 +1,9 @@
+
+<form [formGroup]="form">
+  <div>
+    <label>input 1 custom</label>
+    <input formControlName="input"/>
+  </div>
+
+</form>
+{{form.value | json}}
